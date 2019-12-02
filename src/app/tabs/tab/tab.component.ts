@@ -6,15 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.css']
 })
-export class TabComponent implements OnInit {
+export class TabComponent {
 
   @Input() selected = false;
   @Input() title = '';
 
-  constructor(private tabs: TabsComponent) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.tabs.addTab(this);
-  }
 
 }
