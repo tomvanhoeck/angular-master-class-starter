@@ -10,7 +10,7 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactsDetailViewComponent implements OnInit {
 
-  contact:Contact;
+  contact$:Observable<Contact>;
 
   constructor(
     private contactsService: ContactsService, 
@@ -20,8 +20,7 @@ export class ContactsDetailViewComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.contactsService.getContact(this.route.snapshot.paramMap.get('id'))
-                        .subscribe(contact => this.contact = contact);
+    this.contact$ = this.contactsService.getContact(this.route.snapshot.paramMap.get('id'));
   }
 
   navigateToEditor(contact: Contact){
