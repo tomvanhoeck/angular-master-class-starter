@@ -32,4 +32,9 @@ export class ContactsService {
         .pipe(map(data => data.item));
   }
 
+  search(term: string) {
+    return this.http.get<ContactsResponse>(`${this.apiEndpoint}/search?text=${term}`)
+    .pipe(map(data => data.items));
+  }
+
 }
