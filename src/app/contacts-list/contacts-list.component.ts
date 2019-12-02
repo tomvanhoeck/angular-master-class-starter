@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, merge } from 'rxjs';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'trm-contacts-list',
@@ -29,7 +29,7 @@ export class ContactsListComponent implements OnInit {
 
      Merge Result-----------x---s----s---
 */
-    this.contacts$ = merge(this.contactsService.getContacts(), searchResult);
+    this.contacts$ = merge(this.contactsService.getContacts().pipe(takeUntil(this.terms$)), searchResult);
   }
 
   trackByContactId(index, contact) {

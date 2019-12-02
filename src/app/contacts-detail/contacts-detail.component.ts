@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 import { Contact } from '../models/contact';
@@ -10,12 +10,13 @@ import { Contact } from '../models/contact';
 })
 export class ContactsDetailComponent implements OnInit {
 
-  contact: Contact;
+  @Input() contact: Contact;
 
-  constructor(private contactsService: ContactsService, private route: ActivatedRoute) {}
+  @Output() public edit = new EventEmitter<void>();
+  @Output() public list = new EventEmitter<void>();
+
+  constructor() {}
 
   ngOnInit() {
-    this.contactsService.getContact(this.route.snapshot.paramMap.get('id'))
-                        .subscribe(contact => this.contact = contact);
   }
 }

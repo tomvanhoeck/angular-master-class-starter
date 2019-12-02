@@ -17,13 +17,15 @@ import { ContactsService } from './contacts.service';
 
 import { APP_ROUTES } from './app.routes';
 import { API_ENDPOINT } from './app.tokens';
+import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
 
 @NgModule({
   declarations: [
     ContactsAppComponent,
     ContactsListComponent,
     ContactsDetailComponent,
-    ContactsEditorComponent
+    ContactsEditorComponent,
+    ContactsDetailViewComponent
   ],
   imports: [
     BrowserModule,
