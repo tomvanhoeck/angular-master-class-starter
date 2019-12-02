@@ -23,7 +23,12 @@ export class ContactsListComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.contactsService.search(term)),
     );
+/*
+      -----------x------------
+      ---------------s----s---
 
+     Merge Result-----------x---s----s---
+*/
     this.contacts$ = merge(this.contactsService.getContacts(), searchResult);
   }
 
