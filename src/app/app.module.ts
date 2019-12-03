@@ -1,3 +1,4 @@
+import { EventBusServiceService } from './tabs/event-bus-service.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,8 @@ import { ContactsService } from './contacts.service';
 import { APP_ROUTES } from './app.routes';
 import { API_ENDPOINT } from './app.tokens';
 import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
+import { TabComponent } from './tabs/tab/tab.component';
+import { TabsComponent } from './tabs/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-det
     ContactsListComponent,
     ContactsDetailComponent,
     ContactsEditorComponent,
-    ContactsDetailViewComponent
+    ContactsDetailViewComponent,
+    TabComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-det
   ],
   providers: [
     ContactsService,
-    { provide: API_ENDPOINT, useValue: 'http://localhost:4201/api' }
+    { provide: API_ENDPOINT, useValue: 'http://localhost:4201/api' }, 
+    EventBusServiceService
   ],
   bootstrap: [ContactsAppComponent]
 })
