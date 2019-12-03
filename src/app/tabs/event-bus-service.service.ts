@@ -1,6 +1,6 @@
 import { Observable, Observer, Subject } from 'rxjs';
 import { Injectable, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 
 @Injectable({

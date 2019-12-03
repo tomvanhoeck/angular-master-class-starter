@@ -21,6 +21,8 @@ import { API_ENDPOINT } from './app.tokens';
 import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
+import { StoreModule } from '@ngrx/store';
+import { ROOT_REDUCER } from './state/contacts/app.state';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { TabsComponent } from './tabs/tabs/tabs.component';
     FlexLayoutModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(ROOT_REDUCER)
   ],
   providers: [
     ContactsService,
