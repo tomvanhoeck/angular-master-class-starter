@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, merge } from 'rxjs';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
-import { debounceTime, distinctUntilChanged, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, takeUntil, map } from 'rxjs/operators';
 import { ApplicationState } from '../state/contacts/app.state';
 import { Store, select } from '@ngrx/store';
 import { LoadContactsSuccessAction } from '../state/contacts/contacts.actions';
